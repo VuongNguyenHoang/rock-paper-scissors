@@ -88,6 +88,17 @@ function winnerText(){
         finished=1;
     }
 }
+function startNew(){
+    if (finished){
+        while(results.firstChild){
+            results.removeChild(results.lastChild);
+        }
+        playerWin=0;
+        computerWin=0;
+        gamesPlayed=0;
+        finished=0;
+    }
+}
 let body = document.querySelector('body');
 let playerWin=0;
 let computerWin=0;
@@ -96,6 +107,7 @@ let finished=0;
 let button1 = document.createElement("button");
 button1.textContent="Rock";
 button1.addEventListener('click', () => {
+    startNew();
     createLine(button1.textContent);
     winnerText();
 });
@@ -104,6 +116,7 @@ body.appendChild(button1);
 let button2 = document.createElement("button");
 button2.textContent="Paper";
 button2.addEventListener('click', () => {
+    startNew();
     createLine(button2.textContent);
     winnerText();
 });
@@ -112,6 +125,7 @@ body.appendChild(button2);
 let button3 = document.createElement("button");
 button3.textContent="Scissors";
 button3.addEventListener('click', () => {
+    startNew();
     createLine(button3.textContent);
     winnerText();
 });
